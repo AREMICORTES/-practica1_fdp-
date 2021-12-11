@@ -1,0 +1,65 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<conio.h>
+void main()
+{
+				//Mensaje de bienvenida
+	printf("\n\n\t\t\tBienvenido a mi proyecto final :)\n\n");
+	int x=0,edad=0,a=0,combo=0,otro,ced=0,c_anterior,venta=0;
+	float c1=0,c2=0,c3=0,sub=0,des=0,total=0,anterior=0;
+	char nom[30];
+	printf("\t\t Proyecto Final\n\t\t Sistema de ventas de comida \n\t\t\t Ventas \n");
+	for(x=0;x<1;x++){
+		venta=0;
+		c1=0;
+		c2=0;
+		c3=0;
+		sub=0;
+		des=0;
+		otro=0;
+		combo=0;
+		total=0;
+					//Solicitar datos del cliente
+		printf("\nIntrodusca nombre del cliente: ");
+		scanf("%s",nom);
+		printf("Introdusca numero de membresia del cliente, sin guiones: ");
+		scanf("%d",&ced);
+		printf("Introdusca la edad del cliente: ");
+		scanf("%d",&edad);
+		 	for(a=0;a<1;a++){
+				otro=0;
+						// Elegir un articulo
+				printf("\t\n\n Elija su articulo: \t\t\n Primer combo= 1 \t\t\n Segundo combo= 2 \t\t\n Tercer combo= 3  \n\n Opcion:  ");
+				scanf("%d",&combo);
+ 
+					if(combo==1){c1=c1+3;}
+					printf("\nSubtotal del combo 1: %.2f",c1);
+					if(combo==2){c2=c2+4;}
+					printf("\nSubtotal del combo 2: %.2f",c2);
+					if(combo==3){c3=c3+5;}
+					printf("\nSubtotal del combo 3: %.2f",c3);
+						// Preguntar si desea otro combo
+				printf("\n\nDesea otro combo? \t\t\n Si=1 \t\t\n No=2 \t\t\n Opcion:  ");
+				scanf("%d",&otro);
+				if(otro==1){a=a-1;}
+			}
+			sub=(c1+c2+c3);
+				if(edad>50){des=sub*0.03;}
+			printf("\nSu descuento es de: %.2f",des);
+			total=((sub*0.07)+sub)-des;
+			printf("\nSu total a pagar es de : %.2f",total);
+ 
+			if(total>=anterior){
+				anterior=total;
+				c_anterior=ced;
+			}
+						//Preguntar si desea otro articulo
+			printf("\n\nNueva venta? \t\t\n Si=1 \t\t\n No=2 \t\t\n Opcion:  ");
+				scanf("%d",&venta);
+				if(venta==1){x=x-1;}
+ 
+	}
+	printf("\nLa mayor venta se le hizo al cliente  con el numero de cedula: %d",c_anterior);
+	printf("\nLa venta fue de: %.2f",anterior);
+	getch();
+	}
